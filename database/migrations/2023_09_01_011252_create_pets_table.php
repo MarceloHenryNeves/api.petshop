@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('kind');
             $table->string('name');
-            $table->unsignedBigInteger('idBreed');
-            $table->foreign('idBreed')->references('id')->on('breeds');
             $table->string('date_of_birth');
             $table->string('weight');
+
+            $table->unsignedBigInteger('idBreed');
+            $table->foreign('idBreed')->references('id')->on('breeds');
+
             $table->unsignedBigInteger('idSize');
             $table->foreign('idSize')->references('id')->on('sizes');
+
             $table->timestamps();
         });
     }
