@@ -13,7 +13,7 @@ class Store
     {
         $requestvalidated = $request->validated();
 
-        $pet = Pet::create(array_merge($requestvalidated, ['owner' => auth()->user()->id]));
+        $pet = Pet::create(array_merge($requestvalidated, ['owner_id' => auth()->user()->id]));
 
         if($pet){
             return new ApiErrorResponse('it was not possible to register your pet', 502);

@@ -22,10 +22,11 @@ class StorePetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => "required|string|30",
+            "name" => "required|string|max:30",
             "date_of_birth" => "date",
             "age" => "required|integer",
-            "weight" => "decimal:6,3|required",
+            "weight" => "numeric:6,4|required",
+            "is_allergic" => 'boolean',
             "size_id" => "required|int",
             "sex" => "required|in:male,female",
             "specie_id" => "required|int",

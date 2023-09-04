@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
-            $table->string('kind');
             $table->string('name');
-            $table->string('date_of_birth');
+            $table->string('date_of_birth')->nullable();
             $table->string('weight');
-            $table->decimal('age', 6,3);
+            $table->decimal('age', 6,4);
             $table->boolean('is_allergic');
             $table->enum('sex', ['male', 'female']);
 

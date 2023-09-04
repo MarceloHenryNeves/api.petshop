@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SpecieSeeder::class);
         $this->call(BreedSeeder::class);
         $this->call(CoatTypeSeeder::class);
-        $this->call(CoatTypeSeeder::class);
+        $this->call(CoatSeeder::class);
         $this->call(SizeSeeder::class);
     }
 }

@@ -23,5 +23,6 @@ class Pet extends Model
         'breed_id',
         'size_id',
         'coat_id',
+        'owner_id'
     ];
 }

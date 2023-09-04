@@ -13,6 +13,7 @@ class Breed extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'breed'
+        'breed',
+        'specie_id'
     ];
 }
