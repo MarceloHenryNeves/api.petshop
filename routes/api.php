@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PetController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,4 +19,5 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/me', [AuthController::class, 'me']);
 
+    Route::post('/pet/store', [PetController::class, 'store']);
 });

@@ -17,12 +17,24 @@ return new class extends Migration
             $table->string('name');
             $table->string('date_of_birth');
             $table->string('weight');
+            $table->decimal('age', 6,3);
+            $table->boolean('is_allergic');
+            $table->enum('sex', ['male', 'female']);
 
-            $table->unsignedBigInteger('idBreed');
-            $table->foreign('idBreed')->references('id')->on('breeds');
+            $table->unsignedBigInteger('owner_id');
+            $table->foreign('owner_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('idSize');
-            $table->foreign('idSize')->references('id')->on('sizes');
+            $table->unsignedBigInteger('specie_id');
+            $table->foreign('specie_id')->references('id')->on('species');
+
+            $table->unsignedBigInteger('breed_id');
+            $table->foreign('breed_id')->references('id')->on('breeds');
+
+            $table->unsignedBigInteger('size_id');
+            $table->foreign('size_id')->references('id')->on('sizes');
+
+            $table->unsignedBigInteger('coat_id');
+            $table->foreign('coat_id')->references('id')->on('coats');
 
             $table->timestamps();
         });
