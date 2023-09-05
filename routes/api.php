@@ -20,4 +20,6 @@ Route::group([
     Route::post('/me', [AuthController::class, 'me']);
 
     Route::post('/pet/store', [PetController::class, 'store']);
+    Route::get('/pet/{id_pet}', [PetController::class, 'index']);
+    Route::get('/pets/owner', [PetController::class, 'petsOwner']);
 });

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('date_of_birth')->nullable();
             $table->string('weight');
-            $table->decimal('age', 6,4);
+            $table->decimal('age', 3,1);
             $table->boolean('is_allergic');
             $table->enum('sex', ['male', 'female']);
 
@@ -25,6 +25,9 @@ return new class extends Migration
 
             $table->unsignedBigInteger('specie_id');
             $table->foreign('specie_id')->references('id')->on('species');
+
+            $table->unsignedBigInteger('coat_type_id');
+            $table->foreign('coat_type_id')->references('id')->on('coat_types');
 
             $table->unsignedBigInteger('breed_id');
             $table->foreign('breed_id')->references('id')->on('breeds');

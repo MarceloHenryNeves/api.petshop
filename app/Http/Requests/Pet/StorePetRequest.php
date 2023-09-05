@@ -31,7 +31,8 @@ class StorePetRequest extends FormRequest
             "sex" => "required|in:male,female",
             "specie_id" => "required|int",
             "breed_id" => "required|int",
-            "coat_id" => "required|int"
+            "coat_id" => "required|int",
+            "coat_type_id" => "required|int"
         ];
     }
 }
