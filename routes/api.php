@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PetController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,11 +14,12 @@ Route::group([
 
 ], function () {
 
+    //AUTH
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/me', [AuthController::class, 'me']);
 
-    Route::post('/pet/store', [PetController::class, 'store']);
-    Route::get('/pet/{id_pet}', [PetController::class, 'index']);
-    Route::get('/pets/owner', [PetController::class, 'petsOwner']);
+    //PET
+    Route::prefix('pet')->group([base_path('Routes/api-pets.php')]);
+
 });

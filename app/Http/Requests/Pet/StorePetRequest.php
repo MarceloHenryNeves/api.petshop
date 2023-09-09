@@ -23,7 +23,7 @@ class StorePetRequest extends FormRequest
     {
         return [
             "name" => "required|string|max:30",
-            "date_of_birth" => "date",
+            "date_of_birth" => "date_format:d-m-Y",
             "age" => "required|integer",
             "weight" => "numeric:6,4|required",
             "is_allergic" => 'boolean',
