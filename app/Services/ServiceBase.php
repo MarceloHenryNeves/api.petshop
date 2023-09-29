@@ -9,16 +9,6 @@ use Illuminate\Support\Facades\Crypt;
 class ServiceBase
 {
 
-    protected function userExist($clientId){
-        $user = User::where('clientId', $clientId)->first();
-
-        if($user){
-            return true;
-        }
-
-        return false;
-    }
-
 
     protected function respondWithToken($token)
     {

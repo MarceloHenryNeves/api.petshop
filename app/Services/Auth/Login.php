@@ -13,7 +13,7 @@ class Login extends ServiceBase
         $requestValidated = (object)$request->validated();
 
         $token = auth()->attempt([
-            "clientId" => $this->hashClientId($requestValidated->cpf . '|' . $requestValidated->email),
+            "clientId" => $this->hashClientId($requestValidated->cpf . '|' . getenv('APPLICATION_TOKEN')),
             "password" => $requestValidated->password
         ]);
 

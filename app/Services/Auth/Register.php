@@ -16,13 +16,15 @@ class Register extends ServiceBase
 
         $requestValidated = (object)$request->validated();
 
-        $clientId = $this->hashClientId($requestValidated->cpf . '|' . $requestValidated->email);
+        $clientId = $this->hashClientId($requestValidated->cpf . '|' . getenv('APPLICATION_TOKEN'));
 
-        if($this->userExist($clientId, $requestValidated->email)){
+        $user = new User();
+
+        if($user->exist($clientId)){
             return new ApiErrorResponse('user already exist', 422);
         }
 
-        $user = User::create([
+        $user->create([
             "name" => $this->encrypt($requestValidated->name),
             "clientId" => $clientId,
             "email" => $this->encrypt($requestValidated->email),

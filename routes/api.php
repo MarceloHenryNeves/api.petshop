@@ -22,4 +22,7 @@ Route::group([
     //PET
     Route::prefix('pet')->group([base_path('Routes/api-pets.php')]);
 
+    //USER
+    Route::prefix('user')->group([base_path('Routes/api-users.php')]);
+
 });
