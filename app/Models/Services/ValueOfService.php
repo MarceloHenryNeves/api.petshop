@@ -13,7 +13,7 @@ class ValueOfService extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-      'serive_id',
+        'service_id',
         'size_id',
         'coat_id',
         'prize',

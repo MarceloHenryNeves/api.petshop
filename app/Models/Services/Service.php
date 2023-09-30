@@ -13,8 +13,7 @@ class Service extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name',
-        'description',
+        'title',
         'observation',
         'path_background'
     ];
