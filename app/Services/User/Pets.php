@@ -2,29 +2,24 @@
 
 namespace App\Services\User;
 
+use App\Http\Repositories\UserRepository;
 use App\Http\Responses\ApiErrorResponse;
 use App\Http\Responses\ApiSuccessResponse;
 use App\Models\Pet\Pet;
+use App\Models\User;
 use App\Services\ServiceBase;
 
 class Pets extends ServiceBase
 {
+    protected $userRepository;
+
+    public function construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     public function execute()
     {
-        $pets = Pet::select(
-            'pets.name',
-            'pets.date_of_birth',
-            'pets.age',
-            'pets.weight',
-            'pets.sex',
-            'pets.is_allergic',
-            'users.name as owner_name',
-            'species.specie as specie',
-            'breeds.breed as breed'
-        )->join('users', 'users.id', '=', 'pets.owner_id')
-            ->join('species', 'species.id', '=', 'pets.specie_id')
-            ->join('breeds', 'breeds.id', 'pets.breed_id')
-            ->where("owner_id", auth()->user()->id)->get();
+        $pets = $this->userRepository->pets();
 
         if(!$pets){
             return new ApiErrorResponse('No pet found', 404);

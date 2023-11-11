@@ -33,7 +33,6 @@ class AuthController extends Controller
         return $service->execute();
     }
 
-
     public function logout()
     {
         auth()->logout();
