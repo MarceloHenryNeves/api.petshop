@@ -17,6 +17,7 @@ class Pets extends ServiceBase
     {
         $this->userRepository = $userRepository;
     }
+
     public function execute()
     {
         $pets = $this->userRepository->pets();
