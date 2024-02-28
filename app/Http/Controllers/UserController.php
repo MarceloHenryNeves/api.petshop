@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\User\Pets;
+use App\Http\Services\User\Pets;
 
 class UserController extends Controller
 {

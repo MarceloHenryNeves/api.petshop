@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\UserRepository;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
-use App\Http\Responses\ApiErrorResponse;
-use App\Http\Responses\ApiSuccessResponse;
+use App\Http\Services\Auth\Login;
+use App\Http\Services\Auth\Refresh;
+use App\Http\Services\Auth\Register;
+use App\Http\Services\Auth\UserLogged;
 use App\Models\User;
-use App\Services\Auth\Login;
-use App\Services\Auth\Refresh;
-use App\Services\Auth\Register;
-use App\Services\Auth\UserLogged;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -23,9 +19,9 @@ class AuthController extends Controller
         return $service->execute($request);
     }
 
-    public function login(LoginRequest $request, Login $service)
+    public function login(LoginRequest $request, Login $service, User $user)
     {
-        return $service->execute($request);
+        return $service->execute($request, new UserRepository($user));
     }
 
     public function me(UserLogged $service)

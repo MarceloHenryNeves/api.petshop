@@ -11,7 +11,7 @@ class StoreServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,21 @@ class StoreServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'string|required',
+            'observation' => 'string',
+            'prize' => 'numeric|between:0.01,9999999.99',
+
+            'subservices_id' => 'required|array',
+            'subservices.*' => 'exists:subservices,id',
+
+            'species' => 'required|array',
+            'species.*' => 'exists:species,id',
+
+            'coats_id' => 'required|array',
+            'coats.*' => 'existis:coats,id',
+
+            'sizes_id' => 'required|array',
+            'sizes.*' => 'exists:sizes,id'
         ];
     }
 }

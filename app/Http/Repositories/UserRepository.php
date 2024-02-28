@@ -22,7 +22,6 @@ class UserRepository extends AbstractRepository
             'pets.weight',
             'pets.sex',
             'pets.is_allergic',
-            'users.name as owner_name',
             'species.specie as specie',
             'breeds.breed as breed'
         )->join('pets', 'pets.owner_id', '=', 'users.id')

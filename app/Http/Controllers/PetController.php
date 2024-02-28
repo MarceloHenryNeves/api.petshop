@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Pet\StorePetRequest;
-use App\Http\Responses\ApiErrorResponse;
-use App\Http\Responses\ApiSuccessResponse;
-use App\Models\Pet\Pet;
-use App\Services\Pet\All;
-use App\Services\Pet\Index;
-use App\Services\Pet\Store;
-use Illuminate\Http\Request;
+use App\Http\Services\Pet\All;
+use App\Http\Services\Pet\Index;
+use App\Http\Services\Pet\Store;
 
 class PetController extends Controller
 {
