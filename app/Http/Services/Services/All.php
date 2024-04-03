@@ -18,8 +18,9 @@ class All
     public function execute()
     {
         $services = $this->repository->all();
+
         if(!$services){
-            return new ApiErrorResponse('No pet found', 404);
+            return new ApiErrorResponse('No Service found', 404);
         }
 
         $services = $services->transform(function ($service) {
